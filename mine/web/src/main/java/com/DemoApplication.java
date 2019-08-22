@@ -1,13 +1,13 @@
-package com.study.mine.datasource;
+package com.company.demo.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DatasourceApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DatasourceApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }
