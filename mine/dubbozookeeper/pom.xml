@@ -8,7 +8,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <packaging>jar</packaging>
-    <groupId>com.study.mine.dubblezookeeper</groupId>
     <artifactId>dubbozookeeper</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dubbozookeeper</name>

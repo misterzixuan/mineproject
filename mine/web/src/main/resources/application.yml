@@ -3,6 +3,8 @@ server:
     context-path: /mine
   port: 8083
 
+
+#自定义数据源
 jdbc:
   datasource:
     mine:

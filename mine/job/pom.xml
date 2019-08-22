@@ -9,7 +9,6 @@
     </parent>
 
     <packaging>jar</packaging>
-    <groupId>com.study.mine.job</groupId>
     <artifactId>job</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>job</name>

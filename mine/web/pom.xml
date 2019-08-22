@@ -8,7 +8,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <packaging>jar</packaging>
-    <groupId>com.study.mine.web</groupId>
     <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>web</name>
@@ -24,8 +23,12 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.study.mine.tool</groupId>
+            <groupId>com.study.mine</groupId>
             <artifactId>commontool</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.study.mine</groupId>
+            <artifactId>datasource</artifactId>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>

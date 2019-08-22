@@ -16,6 +16,7 @@
         <module>job</module>
         <module>web</module>
         <module>xml</module>
+        <module>datasource</module>
     </modules>
     <groupId>com.study.mine</groupId>
     <artifactId>mine</artifactId>
@@ -31,14 +32,34 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.study.mine</groupId>
+                <artifactId>datasource</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>2.0.0</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.0.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>2.1.7.RELEASE</version>
+            </dependency>
+            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.15</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>2.1.7.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
@@ -51,7 +72,7 @@
                 <version>4.5.9</version>
             </dependency>
             <dependency>
-                <groupId>com.study.mine.tool</groupId>
+                <groupId>com.study.mine</groupId>
                 <artifactId>commontool</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
