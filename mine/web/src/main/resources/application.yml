@@ -1,1 +1,4 @@
-
+server:
+  servlet:
+    context-path: /mine
+  port: 8083
