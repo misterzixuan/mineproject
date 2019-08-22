@@ -2,3 +2,16 @@ server:
   servlet:
     context-path: /mine
   port: 8083
+
+jdbc:
+  datasource:
+    mine:
+      jdbc-url: jdbc:mysql://localhost:3306/mine?useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      driver: com.mysql.cj.jdbc.Driver
+    mine1:
+      jdbc-url: jdbc:mysql://localhost:3306/mine1?useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      driver: com.mysql.cj.jdbc.Driver
