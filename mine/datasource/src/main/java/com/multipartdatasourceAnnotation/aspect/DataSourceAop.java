@@ -85,7 +85,7 @@ public class DataSourceAop implements Ordered {
 
     @After("pointcut(mineDataSource)")
     public Object datasourceAfter(JoinPoint joinPoint, MineDataSource mineDataSource) {
-        System.out.println("后置通知");
+        System.out.println("后置通知。。。。。。");
         return null;
     }
 
