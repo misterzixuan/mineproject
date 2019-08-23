@@ -1,9 +1,17 @@
 package com.multipartdatasourceAnnotation.config;
 
+import com.multipartdatasourceAnnotation.annotation.MineDataSource;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
 import java.util.Map;
+
+
 
 /**
  * 动态数据源

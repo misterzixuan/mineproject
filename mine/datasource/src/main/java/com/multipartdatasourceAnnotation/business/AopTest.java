@@ -13,11 +13,12 @@ import java.util.Map;
 @Component
 public class AopTest {
 
-
-    @MineDataSource(DataSourceNames.MINE)
+    @Autowired
+    Userinfo userinfo;
+    @MineDataSource("")
     public void test(String name,String like){
-//        System.out.println(userinfo);
-//        List<Map<String, Object>> data = userinfo.findData();
-//        System.out.println(data);
+        System.out.println(userinfo);
+        List<Map<String, Object>> data = userinfo.findData();
+        System.out.println(data.toString());
     }
 }

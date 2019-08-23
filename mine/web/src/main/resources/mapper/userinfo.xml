@@ -3,7 +3,7 @@
 <mapper namespace="com.multipartdatasourceAnnotation.dao.Userinfo"><!-- 映射接口类的 路径！！！ -->
 
     <select id="findData" resultType="map">
-       select * from mine.userinfo;
+       select * from userinfo;
     </select>
 
 </mapper>

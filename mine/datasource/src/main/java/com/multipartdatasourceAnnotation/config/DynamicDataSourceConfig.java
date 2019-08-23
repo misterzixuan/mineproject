@@ -1,14 +1,18 @@
 package com.multipartdatasourceAnnotation.config;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.multipartdatasourceAnnotation.annotation.MineDataSource;
+import com.multipartdatasourceAnnotation.dao.Userinfo;
 import com.multipartdatasourceAnnotation.entity.Mine1DataInfo;
 import com.multipartdatasourceAnnotation.entity.MineDataInfo;
 import org.apache.commons.beanutils.BeanMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.annotation.Order;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -21,15 +25,16 @@ import java.util.Map;
 @Configuration
 public class DynamicDataSourceConfig {
 
-    @Autowired
-    Mine1DataInfo mine1DataInfo;
 
     @Autowired
     MineDataInfo mineDataInfo;
 
+    @Autowired
+    Mine1DataInfo mine1DataInfo;
 
-    @Bean
-    public DataSource mineDataSource() {
+
+    @Bean(name ="mineSource")
+    public DataSource mineSource() {
 
         DataSource dataSource = null;
         try {
@@ -40,7 +45,7 @@ public class DynamicDataSourceConfig {
         return dataSource;
     }
 
-    @Bean
+    @Bean(name ="mine1Source")
     public DataSource mine1DataSource() {
 
         DataSource dataSource = null;
@@ -51,16 +56,6 @@ public class DynamicDataSourceConfig {
         }
         return dataSource;
     }
-
-//    @Bean
-//    @Primary
-//    public DynamicDataSource dataSource() {
-//
-//        Map<Object, Object> targetDataSources = new HashMap<>();
-//        targetDataSources.put(DataSourceNames.MINE, mineDataSource);
-//        targetDataSources.put(DataSourceNames.MINE1, mine1DataSource);
-//        return new DynamicDataSource(mineDataSource, targetDataSources);
-//    }
 
 
     public BeanMap ObjToMap(Object obj) {
