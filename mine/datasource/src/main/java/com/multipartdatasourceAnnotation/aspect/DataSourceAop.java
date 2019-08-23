@@ -9,9 +9,11 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -51,21 +53,22 @@ public class DataSourceAop implements Ordered {
 
 
     // @Pointcut("execution(* com.multipartdatasourceAnnotation.business..*.*(..))")   /*根据报名扫描business包下的所有子孙包，的所有类*/
-    @Pointcut("@annotation(mineDataSource)")      /*根据注解扫描*/
-    public void pointcut(MineDataSource mineDataSource) {
+    @Pointcut("within(@com.multipartdatasourceAnnotation.annotation.MineDataSource *)")      /*根据注解扫描*///||@annotation(mineDataSource)
+    public void pointcut() {
     }
 
-    @Before("pointcut(mineDataSource)")
-    public Object datasourceBefore(JoinPoint joinPoint, MineDataSource mineDataSource) {
+    @Before("pointcut()")
+    public Object datasourceBefore(JoinPoint joinPoint) {
         System.out.println("前置通知");
 
         return null;
     }
 
-    @Around("pointcut(mineDataSource)")
-    public Object datasourceAround(ProceedingJoinPoint joinPoint, MineDataSource mineDataSource) {
+    @Around("pointcut()")
+    public Object datasourceAround(ProceedingJoinPoint joinPoint) {
+
+        String value = getAnnotationValue(joinPoint);
         System.out.println("环绕通知");
-        String value = (String) getDataByAnnotation(mineDataSource);
         if (value != null && !value.isEmpty()) {
             DynamicDataSource.setDataSource(value);
         } else {
@@ -83,20 +86,20 @@ public class DataSourceAop implements Ordered {
         return null;
     }
 
-    @After("pointcut(mineDataSource)")
-    public Object datasourceAfter(JoinPoint joinPoint, MineDataSource mineDataSource) {
+    @After("pointcut()")
+    public Object datasourceAfter(JoinPoint joinPoint) {
         System.out.println("后置通知。。。。。。");
         return null;
     }
 
-    @AfterThrowing(throwing = "e", pointcut = "pointcut(mineDataSource)")
-    public Object datasourceAfterThrowing(JoinPoint joinPoint, Exception e, MineDataSource mineDataSource) {
+    @AfterThrowing(throwing = "e", pointcut = "pointcut()")
+    public Object datasourceAfterThrowing(JoinPoint joinPoint, Exception e) {
         System.out.println("后置异常通知");
         return null;
     }
 
-    @AfterReturning(returning = "res", pointcut = "pointcut(mineDataSource)")
-    public void datasourceAfterReturning(JoinPoint joinPoint, Object res, MineDataSource mineDataSource) {
+    @AfterReturning(returning = "res", pointcut = "pointcut()")
+    public void datasourceAfterReturning(JoinPoint joinPoint, Object res) {
         System.out.println("后置返回结果通知");
     }
 
@@ -104,6 +107,46 @@ public class DataSourceAop implements Ordered {
     @Override
     public int getOrder() {
         return 0;
+    }
+
+
+    /**
+     * @Description 通过joinPoint 获取注解value值
+     * @Author zhangzheng
+     * @param
+     * @Return
+     * @Create: 2019-08-23 14:45
+     * @Version:
+     */
+    public String getAnnotationValue(ProceedingJoinPoint joinPoint){
+
+        if(joinPoint==null){
+            return null;
+        }
+
+        //获取被代理对象
+        Object target=joinPoint.getTarget();
+        //获取署名信息对象
+        Signature signature = joinPoint.getSignature();
+        MethodSignature methodSignature = (MethodSignature)signature;
+        Method targetMethod = methodSignature.getMethod();
+        String annValue="";
+
+        //先从方法上获取，如果方法上有，直接返回，
+        if(targetMethod.isAnnotationPresent(MineDataSource.class)){
+             annValue = targetMethod.getAnnotation(MineDataSource.class).value();
+        }
+        if(annValue!=null&&!annValue.isEmpty()){
+            return annValue;
+        }
+
+        //当方法上的没有注解才会从类上获取注解信息
+        if(target.getClass().isAnnotationPresent(MineDataSource.class)){
+             annValue = target.getClass().getAnnotation(MineDataSource.class).value();
+        }
+
+
+        return annValue;
     }
 
 

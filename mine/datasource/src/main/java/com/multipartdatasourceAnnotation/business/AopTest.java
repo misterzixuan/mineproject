@@ -11,10 +11,12 @@ import java.util.Map;
 
 
 @Component
+@MineDataSource("mine1")
 public class AopTest {
 
     @Autowired
     Userinfo userinfo;
+
     @MineDataSource("mine1")
     public void test(String name,String like){
         System.out.println(userinfo);
@@ -22,8 +24,10 @@ public class AopTest {
         System.out.println(data.toString());
     }
 
-
-    public void afterPropertiesSet() {
-        System.out.println(1);
+    @MineDataSource("mine")
+    public void test2(String name,String like){
+        System.out.println(userinfo);
+        List<Map<String, Object>> data = userinfo.findData();
+        System.out.println(data.toString());
     }
 }

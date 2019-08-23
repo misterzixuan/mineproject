@@ -23,5 +23,7 @@ public class test {
     public void dataSourceAopTest(){
         System.out.println(userinfo);
         test.test("aaa","bbb");
+        test.test2("aaa","bbb");
+
     }
 }
