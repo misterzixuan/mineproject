@@ -17,14 +17,14 @@ public class AopTest {
     @Autowired
     Userinfo userinfo;
 
-    @MineDataSource("mine1")
+//    @MineDataSource("mine1")
     public void test(String name,String like){
         System.out.println(userinfo);
         List<Map<String, Object>> data = userinfo.findData();
         System.out.println(data.toString());
     }
 
-    @MineDataSource("mine")
+//    @MineDataSource("mine")
     public void test2(String name,String like){
         System.out.println(userinfo);
         List<Map<String, Object>> data = userinfo.findData();
