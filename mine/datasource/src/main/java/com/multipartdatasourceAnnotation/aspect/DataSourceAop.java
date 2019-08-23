@@ -72,7 +72,6 @@ public class DataSourceAop implements Ordered {
             DynamicDataSource.setDataSource(DataSourceNames.MINE);
         }
 
-
         try {
             return joinPoint.proceed();
         } catch (Throwable throwable) {
