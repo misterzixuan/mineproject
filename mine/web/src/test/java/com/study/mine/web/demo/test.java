@@ -2,7 +2,8 @@ package com.study.mine.web.demo;
 
 
 import com.DemoApplication;
-import com.multipartdatasource.business.AopTest;
+import com.multipartdatasourceAnnotation.business.AopTest;
+import com.multipartdatasourceAnnotation.dao.Userinfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,11 @@ public class test {
     @Autowired
     AopTest test;
 
+    @Autowired
+    Userinfo userinfo;
     @Test
     public void dataSourceAopTest(){
-        System.out.println(test);
+        System.out.println(userinfo);
         test.test("aaa","bbb");
     }
 }

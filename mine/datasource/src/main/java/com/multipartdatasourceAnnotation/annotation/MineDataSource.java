@@ -1,4 +1,4 @@
-package com.multipartdatasource.annotation;
+package com.multipartdatasourceAnnotation.annotation;
 
 import java.lang.annotation.*;
 
@@ -6,5 +6,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface MineDataSource {
-    String name() default "";
+    String value() default "";
 }
