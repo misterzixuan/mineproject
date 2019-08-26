@@ -24,7 +24,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         super.setDefaultTargetDataSource(defaultTargetDataSource);
         super.setTargetDataSources(targetDataSources);
 
-        //创建bean的时候回调用
+        //创建bean的时候自动调用
       //  super.afterPropertiesSet();
     }
 

@@ -109,6 +109,11 @@
                 <version>2.1.6.RELEASE</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>cn.jiangzeyin</groupId>
+                <artifactId>dbutil</artifactId>
+                <version>1.2.11</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

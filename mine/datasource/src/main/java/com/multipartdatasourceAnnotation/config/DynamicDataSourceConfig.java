@@ -33,7 +33,19 @@ public class DynamicDataSourceConfig {
     Mine1DataInfo mine1DataInfo;
 
 
-    @Bean(name ="mineSource")
+    @Bean
+    @Primary
+    public DynamicDataSource dataSource( ) {
+        DataSource mine=mineSource();
+        DataSource mine1=mine1DataSource();
+        Map<Object, Object> targetDataSources = new HashMap<>();
+        targetDataSources.put(DataSourceNames.MINE, mine);
+        targetDataSources.put(DataSourceNames.MINE1,mine1);
+        return new DynamicDataSource( mine, targetDataSources);
+    }
+
+
+
     public DataSource mineSource() {
 
         DataSource dataSource = null;
@@ -45,7 +57,7 @@ public class DynamicDataSourceConfig {
         return dataSource;
     }
 
-    @Bean(name ="mine1Source")
+
     public DataSource mine1DataSource() {
 
         DataSource dataSource = null;
