@@ -19,7 +19,7 @@ public class testController {
 
     @RequestMapping("/test")
     public Object test(){
-
+        System.out.println(444444);
         System.out.println(1111);
         System.out.println(2222);
 
