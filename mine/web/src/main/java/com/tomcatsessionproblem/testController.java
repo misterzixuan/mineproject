@@ -19,8 +19,10 @@ public class testController {
 
     @RequestMapping("/test")
     public Object test(){
+
         System.out.println(1111);
         System.out.println(2222);
+
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
         HttpServletResponse response = servletRequestAttributes.getResponse();
