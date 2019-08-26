@@ -53,7 +53,7 @@ public class DataSourceAop implements Ordered {
 
 
     // @Pointcut("execution(* com.multipartdatasourceAnnotation.business..*.*(..))")   /*根据报名扫描business包下的所有子孙包，的所有类*/
-    @Pointcut("within(@com.multipartdatasourceAnnotation.annotation.MineDataSource *)||@annotation(com.multipartdatasourceAnnotation.annotation.MineDataSource)")      /*根据注解扫描*///||@annotation(mineDataSource)
+    @Pointcut("within(@com.multipartdatasourceAnnotation.annotation.MineDataSource *)")      /*根据注解扫描*///||@annotation(mineDataSource)
     public void pointcut() {
     }
 
