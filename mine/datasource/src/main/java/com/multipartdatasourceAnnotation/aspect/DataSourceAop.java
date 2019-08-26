@@ -66,7 +66,6 @@ public class DataSourceAop implements Ordered {
 
     @Around("pointcut()")
     public Object datasourceAround(ProceedingJoinPoint joinPoint) {
-        System.out.println(1);
         String value = getAnnotationValue(joinPoint);
         System.out.println("环绕通知");
         if (value != null && !value.isEmpty()) {
