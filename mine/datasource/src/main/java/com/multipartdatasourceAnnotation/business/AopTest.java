@@ -11,7 +11,7 @@ import java.util.Map;
 
 
 @Component
-@MineDataSource("mine1")
+//@MineDataSource("mine1")
 public class AopTest {
 
     @Autowired
