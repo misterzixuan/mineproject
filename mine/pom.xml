@@ -17,6 +17,7 @@
         <module>web</module>
         <module>xml</module>
         <module>datasource</module>
+        <module>../ssmproject</module>
     </modules>
     <groupId>com.study.mine</groupId>
     <artifactId>mine</artifactId>

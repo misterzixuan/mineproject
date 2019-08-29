@@ -1,7 +1,10 @@
 package com.tomcatsessionproblem;
 
 
+import cn.hutool.core.annotation.AnnotationUtil;
+import cn.hutool.core.util.ClassUtil;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
