@@ -12,8 +12,6 @@
     <!-- 注解驱动：自动配置处理器映射器和处理器适配器 -->
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler />
-
-    <!--配置静态资源  或者在web.xml 中配置也可以-->
     <mvc:resources location="/jsp/" mapping="/jsp/**"/>
     <mvc:resources location="/tool/jquery/" mapping="/tool/jquery/**"/>
     <!-- 视图解析器 -->
