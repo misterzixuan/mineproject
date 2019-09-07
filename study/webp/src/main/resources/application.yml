@@ -1,0 +1,30 @@
+
+test:
+  a: b
+  b: c
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 1044984012@qq.com
+    default-encoding: utf-8
+    password: nfsgrezolxnbbebc
+
+  datasource:
+    url:  jdbc:mysql://localhost:3306/mine1?useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+    show-sql: true
+server:
+  port: 8080
+  servlet:
+    context-path: /study
+
+
+#logging.level.org.hibernate.SQL: DEBUG
