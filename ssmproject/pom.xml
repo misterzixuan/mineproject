@@ -23,7 +23,7 @@
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.25</slf4j.version>
         <fastjson.version>1.2.40</fastjson.version>
-        <jsckson.version>2.9.1</jsckson.version>
+        <jsckson.version>2.11.1</jsckson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
